@@ -1,4 +1,4 @@
-Flappy-airBaloon
+FlappyBalloon
 ================
 
-Js flappy genre game with an airBaloon.
+Js flappy game genre with an air balloon.
