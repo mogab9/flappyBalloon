@@ -33,6 +33,9 @@ var PlayerEntity = me.ObjectEntity.extend({
         spriteheight : 32,
     });
     this.alwaysUpdate = true;
+    this.renderable.addAnimation("idle", [0]);
+    this.renderable.addAnimation("falling", [1]);
+    this.animationController = 0;
     // handle collision
     this.addShape(new me.Rect(new me.Vector2d(5, 5), 32, 32));
   },
@@ -51,6 +54,13 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.jumping      = false;
         this.gravityForce += 0.15;
         this.pos.y        += this.gravityForce;
+    }
+
+    // update animation
+    if (0 > this.gravityForce) {
+      this.renderable.setCurrentAnimation("idle");
+    } else {
+      this.renderable.setCurrentAnimation("falling");
     }
 
     // collision detection
