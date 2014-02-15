@@ -24,14 +24,14 @@ var PlayerEntity = me.ObjectEntity.extend({
   init: function (x, y) {
     this.parent(x, y, {
         image : "player",
-        width : 50,
-        height : 50,
-        spritewidth : 50,
-        spriteheight : 50,
+        width : 32,
+        height : 32,
+        spritewidth : 32,
+        spriteheight : 32,
     });
     this.alwaysUpdate = true;
     // handle collision
-    this.addShape(new me.Rect(new me.Vector2d(5, 5), 70, 50));
+    this.addShape(new me.Rect(new me.Vector2d(5, 5), 32, 32));
   },
 
   // update the player pos
@@ -43,10 +43,10 @@ var PlayerEntity = me.ObjectEntity.extend({
     // jump handler
     if (me.input.isKeyPressed('jump')){
         this.jumping      = true;
-        this.gravityForce = -5.0;
+        this.gravityForce = -4.0;
     } else {
         this.jumping      = false;
-        this.gravityForce += 0.2;
+        this.gravityForce += 0.15;
         this.pos.y        += this.gravityForce;
     }
 
