@@ -4,7 +4,7 @@ game.resources = [
 	 * @example
 	 * {name: "example", type:"image", src: "data/img/example.png"},
 	 */
-	 {name: "bkg", type:"image", src: "data/img/bkg.png"},
+	 {name: "bkg", type:"image", src: "data/img/background.jpg"},
 	 {name: "player", type:"image", src: "data/img/player.png"},
 	 {name: "pipe", type:"image", src: "data/img/pipe.png"},
 

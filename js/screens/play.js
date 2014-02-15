@@ -1,8 +1,8 @@
 game.PlayScreen = me.ScreenObject.extend({
-  tickCpt : 0,
-  xSpaceBetweenPipes : 110,
-  ySpaceBetweenPipes : 250,
-  pipeSpawnXpos : 500,
+	tickCpt : 0,
+	xSpaceBetweenPipes : 110,
+	ySpaceBetweenPipes : 250,
+	pipeSpawnXpos : 500,
 
 	/**
 	 *  action to perform on state change
@@ -21,8 +21,9 @@ game.PlayScreen = me.ScreenObject.extend({
 		// add player
 		player = me.entityPool.newInstanceOf("player", 60, 60);
 		me.game.world.addChild(player);
-    // generate pipes
-    this.generatePipes();
+
+		// generate first pipes
+		this.generatePipes();
 	},
 
 	/**
@@ -33,12 +34,12 @@ game.PlayScreen = me.ScreenObject.extend({
 		me.game.world.removeChild(this.HUD);
 	},
 
-  update: function() {
-    // update tick Cpt and generate pipes if needed
-    this.tickCpt += me.timer.tick;
-    this.generatePipes();
-    return false;
-  },
+	update: function() {
+		// update tick Cpt and generate pipes if needed
+		this.tickCpt += me.timer.tick;
+		this.generatePipes();
+		return false;
+	},
 
   /**
    *  Generate pipes on the screen

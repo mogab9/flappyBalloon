@@ -1,4 +1,6 @@
 var ScrollingBackgroundLayer = me.ImageLayer.extend({
+  repeat: 'repeat-x',
+
   init: function (image, ratio) {
     var name   = image;
     var width  = 640;
@@ -8,13 +10,14 @@ var ScrollingBackgroundLayer = me.ImageLayer.extend({
   },
 
   update: function () {
-    // recalibrate image position
-    if (this.offset.x >= this.imagewidth) {
-      this.offset.x = 0;
+    // reset img pos to prevent an IndexSizeError
+    if (this.pos.x >= this.imagewidth/2) {
+      this.pos.x = 0;
     }
-    // increment horizontal background position
-    this.offset.x += this.ratio;
-    return true;
+    // scroll!!!
+    this.pos.x++;
+    this.parent();
+    return true; 
   }
 });
 
