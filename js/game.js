@@ -37,6 +37,9 @@ var game = {
 
 	// game inputs
 	me.input.bindKey(me.input.KEY.X, "jump", true);
+	me.input.bindKey(me.input.KEY.SPACE, "jump", true);
+	me.input.bindKey(me.input.KEY.ENTER, "jump", true);
+	me.input.bindKey(me.input.KEY.CTRL, "jump", true);
 	me.input.bindMouse(0, me.input.KEY.X);
 
 	// Initialize melonJS and display a loading screen.
