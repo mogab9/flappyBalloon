@@ -1,6 +1,7 @@
 game.PlayScreen = me.ScreenObject.extend({
   tickCpt : 0,
-  spaceBetweenPipes : 110,
+  xSpaceBetweenPipes : 110,
+  ySpaceBetweenPipes : 250,
   pipeSpawnXpos : 500,
 
 	/**
@@ -43,10 +44,10 @@ game.PlayScreen = me.ScreenObject.extend({
    *  Generate pipes on the screen
    */
   generatePipes: function() {
-    if (this.tickCpt % this.spaceBetweenPipes == 0) {
+    if (this.tickCpt % this.xSpaceBetweenPipes == 0) {
       pipe = me.entityPool.newInstanceOf("pipe", this.pipeSpawnXpos, -50 + Math.floor((Math.random()*100)+1));
       me.game.world.addChild(pipe);
-      pipe = me.entityPool.newInstanceOf("pipe", this.pipeSpawnXpos, pipe.pos.y + 300);
+      pipe = me.entityPool.newInstanceOf("pipe", this.pipeSpawnXpos, pipe.pos.y + this.ySpaceBetweenPipes);
       me.game.world.addChild(pipe);
     }
   }
